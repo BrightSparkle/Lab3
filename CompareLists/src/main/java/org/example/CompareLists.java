@@ -26,4 +26,17 @@ public class CompareLists {
         }
         return System.nanoTime() - start;
     }
+
+    private static long testGet(List<Integer> list, int iterations) {
+        for (int i = 0; i < iterations; i++) {
+            list.add(i);
+        }
+
+        long start = System.nanoTime();
+        int midIndex = iterations / 2;
+        for (int i = 0; i < iterations; i++) {
+            list.get(midIndex);
+        }
+        return System.nanoTime() - start;
+    }
 }
