@@ -35,4 +35,30 @@ public class CompareListsTest {
         assertEquals(0, arrayList.size());
         assertEquals(0, linkedList.size());
     }
+
+    @Test
+    void testGetOperation() {
+        List<Integer> arrayList = new ArrayList<>();
+        List<Integer> linkedList = new LinkedList<>();
+        int iterations = 1000;
+
+        CompareLists.testAdd(arrayList, iterations);
+        CompareLists.testAdd(linkedList, iterations);
+
+        assertDoesNotThrow(() -> CompareLists.testGet(arrayList, iterations));
+        assertDoesNotThrow(() -> CompareLists.testGet(linkedList, iterations));
+    }
+
+    @Test
+    void testExecutionTimeNotNegative() {
+        // Arrange
+        List<Integer> list = new ArrayList<>();
+        int iterations = 100;
+
+        // Act
+        long time = CompareLists.testAdd(list, iterations);
+
+        // Assert
+        assertTrue(time >= 0, "Время выполнения должно быть неотрицательным");
+    }
 }
