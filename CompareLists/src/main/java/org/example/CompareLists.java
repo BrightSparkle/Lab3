@@ -51,9 +51,6 @@ public class CompareLists {
     }
 
     public static long testDelete(List<Integer> list, int iterations) {
-        for (int i = 0; i < iterations; i++) {
-            list.add(i);
-        }
 
         long start = System.nanoTime();
         for (int i = 0; i < iterations; i++) {
