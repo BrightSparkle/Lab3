@@ -14,4 +14,16 @@ public class CompareLists {
         }
         return System.nanoTime() - start;
     }
+
+    private static long testDelete(List<Integer> list, int iterations) {
+        for (int i = 0; i < iterations; i++) {
+            list.add(i);
+        }
+
+        long start = System.nanoTime();
+        for (int i = 0; i < iterations; i++) {
+            list.remove(0);
+        }
+        return System.nanoTime() - start;
+    }
 }
