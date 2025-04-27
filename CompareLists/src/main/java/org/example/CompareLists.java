@@ -22,7 +22,7 @@ public class CompareLists {
         testOperation("get", new LinkedList<>(), ITERATIONS);
     }
 
-    private static void testOperation(String operation, List<Integer> list, int iterations) {
+    public static void testOperation(String operation, List<Integer> list, int iterations) {
         String listType = list instanceof ArrayList ? "ArrayList" : "LinkedList";
         long time = 0;
 
@@ -42,7 +42,7 @@ public class CompareLists {
                 operation, listType, iterations, time);
     }
 
-    private static long testAdd(List<Integer> list, int iterations) {
+    public static long testAdd(List<Integer> list, int iterations) {
         long start = System.nanoTime();
         for (int i = 0; i < iterations; i++) {
             list.add(i);
@@ -50,7 +50,7 @@ public class CompareLists {
         return System.nanoTime() - start;
     }
 
-    private static long testDelete(List<Integer> list, int iterations) {
+    public static long testDelete(List<Integer> list, int iterations) {
         for (int i = 0; i < iterations; i++) {
             list.add(i);
         }
@@ -62,7 +62,7 @@ public class CompareLists {
         return System.nanoTime() - start;
     }
 
-    private static long testGet(List<Integer> list, int iterations) {
+    public static long testGet(List<Integer> list, int iterations) {
         for (int i = 0; i < iterations; i++) {
             list.add(i);
         }
