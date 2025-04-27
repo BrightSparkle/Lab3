@@ -12,14 +12,17 @@ public class CompareLists {
         System.out.println("| Метод   | Тип коллекции | Итераций | Время выполнения |");
         System.out.println("|---------|----------------|----------|------------------|");
 
-        testOperation("add", new ArrayList<>(), ITERATIONS);
-        testOperation("add", new LinkedList<>(), ITERATIONS);
+        List<Integer> list1 = new ArrayList<>();
+        List<Integer> list2 = new ArrayList<>();
 
-        testOperation("delete", new ArrayList<>(), ITERATIONS);
-        testOperation("delete", new LinkedList<>(), ITERATIONS);
+        testOperation("add", list1, ITERATIONS);
+        testOperation("add", list2, ITERATIONS);
 
         testOperation("get", new ArrayList<>(), ITERATIONS);
         testOperation("get", new LinkedList<>(), ITERATIONS);
+
+        testOperation("delete", list1, ITERATIONS);
+        testOperation("delete", list2, ITERATIONS);
     }
 
     public static void testOperation(String operation, List<Integer> list, int iterations) {
