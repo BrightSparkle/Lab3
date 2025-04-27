@@ -3,10 +3,23 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Класс для сравнения производительности ArrayList и LinkedList.
+ * <p>
+ * Содержит методы тестирования основных операций коллекций: добавление, удаление, доступ к элементам.
+ * Результаты выводятся в виде таблицы с временем выполнения в наносекундах.
+ * </p>
+ */
 public class CompareLists {
 
+    /**
+     * Количество итераций для тестирования каждой операции
+     */
     private static final int ITERATIONS = 10_000;
 
+    /**
+     * Запускает все тесты производительности и выводит результаты
+     */
     public static void testPerformance() {
         System.out.println("Результаты сравнения производительности (нс):\n");
         System.out.println("| Метод   | Тип коллекции | Итераций | Время выполнения |");
@@ -25,6 +38,12 @@ public class CompareLists {
         testOperation("delete", list2, ITERATIONS);
     }
 
+    /**
+     * Выполняет тестирование указанной операции
+     * @param operation название операции (add/delete/get)
+     * @param list тестируемая коллекция
+     * @param iterations количество итераций
+     */
     public static void testOperation(String operation, List<Integer> list, int iterations) {
         String listType = list instanceof ArrayList ? "ArrayList" : "LinkedList";
         long time = 0;
@@ -45,6 +64,12 @@ public class CompareLists {
                 operation, listType, iterations, time);
     }
 
+    /**
+     * Тестирует операцию добавления элементов
+     * @param list коллекция для тестирования
+     * @param iterations количество элементов для добавления
+     * @return время выполнения в наносекундах
+     */
     public static long testAdd(List<Integer> list, int iterations) {
         long start = System.nanoTime();
         for (int i = 0; i < iterations; i++) {
@@ -53,6 +78,12 @@ public class CompareLists {
         return System.nanoTime() - start;
     }
 
+    /**
+     * Тестирует операцию удаления элементов
+     * @param list коллекция для тестирования
+     * @param iterations количество элементов для удаления
+     * @return время выполнения в наносекундах
+     */
     public static long testDelete(List<Integer> list, int iterations) {
 
         long start = System.nanoTime();
@@ -62,6 +93,12 @@ public class CompareLists {
         return System.nanoTime() - start;
     }
 
+    /**
+     * Тестирует операцию доступа к элементам
+     * @param list коллекция для тестирования
+     * @param iterations количество обращений
+     * @return время выполнения в наносекундах
+     */
     public static long testGet(List<Integer> list, int iterations) {
         for (int i = 0; i < iterations; i++) {
             list.add(i);

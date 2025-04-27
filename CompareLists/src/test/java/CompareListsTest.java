@@ -5,8 +5,14 @@ import java.util.LinkedList;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Юнит-тесты для класса ListPerformanceTest
+ */
 public class CompareListsTest {
 
+    /**
+     * Тестирование операции добавления элементов
+     */
     @Test
     void testAddOperation() {
         List<Integer> arrayList = new ArrayList<>();
@@ -20,6 +26,9 @@ public class CompareListsTest {
         assertEquals(iterations, linkedList.size());
     }
 
+    /**
+     * Тестирование операции удаления элементов
+     */
     @Test
     void testDeleteOperation() {
         List<Integer> arrayList = new ArrayList<>();
@@ -36,6 +45,9 @@ public class CompareListsTest {
         assertEquals(0, linkedList.size());
     }
 
+    /**
+     * Тестирование операции доступа к элементам
+     */
     @Test
     void testGetOperation() {
         List<Integer> arrayList = new ArrayList<>();
@@ -49,6 +61,9 @@ public class CompareListsTest {
         assertDoesNotThrow(() -> CompareLists.testGet(linkedList, iterations));
     }
 
+    /**
+     * Тестирование положительности времени
+     */
     @Test
     void testExecutionTimeNotNegative() {
         // Arrange
