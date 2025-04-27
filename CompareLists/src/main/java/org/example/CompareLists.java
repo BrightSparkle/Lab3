@@ -7,6 +7,21 @@ public class CompareLists {
 
     private static final int ITERATIONS = 10_000;
 
+    public static void testPerformance() {
+        System.out.println("Результаты сравнения производительности (нс):\n");
+        System.out.println("| Метод   | Тип коллекции | Итераций | Время выполнения |");
+        System.out.println("|---------|----------------|----------|------------------|");
+
+        testOperation("add", new ArrayList<>(), ITERATIONS);
+        testOperation("add", new LinkedList<>(), ITERATIONS);
+
+        testOperation("delete", new ArrayList<>(), ITERATIONS);
+        testOperation("delete", new LinkedList<>(), ITERATIONS);
+
+        testOperation("get", new ArrayList<>(), ITERATIONS);
+        testOperation("get", new LinkedList<>(), ITERATIONS);
+    }
+
     private static void testOperation(String operation, List<Integer> list, int iterations) {
         String listType = list instanceof ArrayList ? "ArrayList" : "LinkedList";
         long time = 0;
